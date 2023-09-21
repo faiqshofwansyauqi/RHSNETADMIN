@@ -31,7 +31,7 @@ class DashboardController extends Controller
     public function mikrotik()
     {
         $client = new Client([
-            'host' => 'sg02.konekter.us:11081',
+            'host' => 'sg02.konekter.us:10958',
             'user' => 'Elisoft',
             'pass' => 'Elisoft',
             'port' => 8728,

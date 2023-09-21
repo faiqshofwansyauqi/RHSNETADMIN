@@ -14,20 +14,20 @@
             <a class="nav-link collapsed" data-bs-target="#forms-nav" data-bs-toggle="collapse" href="#">
                 <i class="bi bi-router-fill "></i><span>Hotspot</span><i class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="forms-nav" class="nav-content collapse {{ request()->is(['dashboard/userprofile','dashboard/active','dashboard/user']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="/user">
-                        <i class="bi bi-circle"></i><span>User Profile</span>
+                    <a href="/dashboard/userprofile" class="{{ request()->is(['dashboard/userprofile']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Users Profile</span>
                     </a>
                 </li>
                 <li>
-                    <a href="forms-layouts.html">
-                        <i class="bi bi-circle"></i><span>User</span>
+                    <a href="/dashboard/user"class="{{ request()->is(['dashboard/user']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Users</span>
                     </a>
                 </li>
                 <li>
-                    <a href="forms-editors.html">
-                        <i class="bi bi-circle"></i><span>Active</span>
+                    <a href="/dashboard/active" class="{{ request()->is(['dashboard/active']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Users Active</span>
                     </a>
                 </li>
                 <li>
@@ -58,7 +58,7 @@
         </li><!-- End Tables Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed" href="/report">
+        <a class="nav-link collapsed " href="/dashboard/report">
           <i class="bi bi-file-earmark-text-fill"></i>
           <span>Report</span>
         </a>

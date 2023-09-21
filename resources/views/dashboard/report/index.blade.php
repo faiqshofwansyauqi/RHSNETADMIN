@@ -19,21 +19,23 @@
                 <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"></h5>
-                        <!-- Table with stripped rows -->
-                        <table class="table" id="orders-table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">No</th>
-                                    <th scope="col">Nama</th>
-                                    <th scope="col">Email</th>
-                                    <th scope="col">Phone</th>
-                                    <th scope="col">Qty</th>
-                                    <th scope="col">Harga</th>
-                                    <th scope="col">Status</th>
-                                    <th scope="col">Code</th>
-                                </tr>
-                            </thead>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table small" id="orders-table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">No</th>
+                                        <th scope="col">Nama</th>
+                                        <th scope="col">Email</th>
+                                        <th scope="col">Phone</th>
+                                        <th scope="col">Qty</th>
+                                        <th scope="col">Harga</th>
+                                        <th scope="col">Status</th>
+                                        <th scope="col">Code</th>
+                                    </tr>
+                                </thead>
+                            </table>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -46,7 +48,7 @@
 <script>
     $(document).ready(function() {
         $('#orders-table').DataTable({
-            processing: true,
+            processing: false,
             serverSide: true,
             ajax: '{{ route('report.data') }}',
             columns: [{

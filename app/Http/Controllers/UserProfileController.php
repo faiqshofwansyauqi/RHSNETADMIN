@@ -13,20 +13,20 @@ class UserProfileController extends Controller
     public function index()
 {
     $users = Profile::orderBy('id', 'ASC')->get();
-    return view('user.index', compact('users'));
+    return view('dashboard.userprofile.index', compact('users'));
 }
 
     public function create()
     {
 
         $client = new Client([
-            'host' => 'sg02.konekter.us:11081',
+            'host' => 'sg02.konekter.us:10958',
             'user' => 'Elisoft',
             'pass' => 'Elisoft'
         ]);
         $profile = $client->query('/ip/hotspot/user/profile/print')->read();
 
-        return view('user.create', compact('profile'));
+        return view('dashboard.userprofile.create', compact('profile'));
     }
 
     public function store(Request $request)
@@ -51,7 +51,7 @@ class UserProfileController extends Controller
     {
         $users = Profile::find($id); // Gantilah 'User' dengan model pengguna yang sesuai
 
-        return view('user.edit', compact('users'));
+        return view('dashboard.userprofile.edit', compact('users'));
     }
 
     public function update(Request $request, $id)
