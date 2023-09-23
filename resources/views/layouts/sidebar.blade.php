@@ -3,7 +3,7 @@
 
     <ul class="sidebar-nav" id="sidebar-nav">
 
-        <li class="nav-item">
+    <li class="nav-item">
             <a class="nav-link " a href="/dashboard">
                 <i class="bi bi-grid"></i>
                 <span>Dashboard</span>
@@ -21,18 +21,13 @@
                     </a>
                 </li>
                 <li>
-                    <a href="/dashboard/user"class="{{ request()->is(['dashboard/user']) ? 'active' : '' }}">
+                    <a href="/dashboard/user" class="{{ request()->is(['dashboard/user']) ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Users</span>
                     </a>
                 </li>
                 <li>
                     <a href="/dashboard/active" class="{{ request()->is(['dashboard/active']) ? 'active' : '' }}">
                         <i class="bi bi-circle"></i><span>Users Active</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="forms-validation.html">
-                        <i class="bi bi-circle"></i><span>Host</span>
                     </a>
                 </li>
             </ul>
@@ -43,22 +38,27 @@
                 <i class="bi bi-gear-fill"></i><span>Pengaturan</span><i
                     class="bi bi-chevron-down ms-auto"></i>
             </a>
-            <ul id="tables-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
+            <ul id="tables-nav" class="nav-content collapse {{ request()->is(['dashboard/pengaturan']) ? 'show' : '' }}" data-bs-parent="#sidebar-nav">
                 <li>
-                    <a href="tables-general.html">
-                        <i class="bi bi-circle"></i><span>General Tables</span>
+                    <a href="/dashboard/pengaturan" class="{{ request()->is(['dashboard/pengaturan']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Data Mikrotik</span>
                     </a>
                 </li>
                 <li>
-                    <a href="tables-data.html">
-                        <i class="bi bi-circle"></i><span>Data Tables</span>
+                    <a href="/dashboard/pengaturan" class="{{ request()->is(['dashboard/pengaturan']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Data Personal</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/dashboard/pengaturan" class="{{ request()->is(['dashboard/pengaturan']) ? 'active' : '' }}">
+                        <i class="bi bi-circle"></i><span>Data Share Profit</span>
                     </a>
                 </li>
             </ul>
         </li><!-- End Tables Nav -->
 
       <li class="nav-item">
-        <a class="nav-link collapsed " href="/dashboard/report">
+        <a class="nav-link collapsed " href="/dashboard/omset">
           <i class="bi bi-file-earmark-text-fill"></i>
           <span>Report</span>
         </a>

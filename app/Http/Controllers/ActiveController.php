@@ -30,11 +30,11 @@ class ActiveController extends Controller
 
         $query =(new Query('/ip/hotspot/active/print'));
         $response = $client->query($query)->read();
-        $active_user = count($response);
+        $activeuser_count = count($response);
 
         $query = new Query('/ip/hotspot/active/print');
-        $hotspotActiveData = $client->query($query)->read();
+        $hotspotactive_data = $client->query($query)->read();
 
-        return view('dashboard.active.index', compact('active_user','hotspotActiveData'));
+        return view('dashboard.active.index', compact('activeuser_count','hotspotactive_data'));
     }
 }

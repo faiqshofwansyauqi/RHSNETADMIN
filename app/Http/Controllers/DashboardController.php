@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use \RouterOS\Client;
 use \RouterOS\Query;
+
 
 class DashboardController extends Controller
 {
@@ -24,8 +26,9 @@ class DashboardController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {   
-        return view('dashboard.index');
+    {
+        $totalPrice = DB::table('history')->sum('price');
+        return view('dashboard.index', ['totalPrice' => $totalPrice]);
     }
 
     public function mikrotik()
@@ -41,21 +44,18 @@ class DashboardController extends Controller
         }
 
 
-        // Create "where" Query object for RouterOS
-        $query =
-            (new Query('/ip/hotspot/active/print'));
-
-        // Send query and read response from RouterOS
+        
+        $query =(new Query('/ip/hotspot/active/print'));
         $response = $client->query($query)->read();
-        $active = count($response);
-        // dd($response);
+        $active = count($response);    
 
-        $query =
-            (new Query('/ip/hotspot/user/print'));
+        $query = (new Query('/ip/hotspot/user/profile/print'));
+        $response = $client->query($query)->read();
+        $userprofile = count($response);
 
-        // Send query and read response from RouterOS
+        $query =(new Query('/ip/hotspot/user/print'));
         $response = $client->query($query)->read();
         $user = count($response);
-        return view('dashboard.index',compact('active', 'user'));
+        return view('dashboard.index', compact('active', 'user','userprofile'));
     }
 }

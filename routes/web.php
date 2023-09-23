@@ -7,6 +7,8 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ReportController;
 use App\Http\Controllers\UserProfileController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OmsetController;
+use App\Http\Controllers\PengaturanController;
 use Illuminate\Support\Facades\Auth;
 
 /*
@@ -30,17 +32,18 @@ Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard
 Route::get('/dashboard', [DashboardController::class, 'mikrotik']);
 
 Route::prefix('dashboard/userprofile')->group(function () {
-    Route::get('/', UserProfileController::class . '@index')->name('user.index');
-    Route::get('dashboard/userprofile/create', UserProfileController::class . '@create')->name('user.create');
-    Route::post('dashboard/userprofile', UserProfileController::class . '@store')->name('user.store');
-    Route::get('dashboard/userprofile/{post}', UserProfileController::class . '@show')->name('user.show');
-    Route::get('dashboard/userprofile/{post}/edit', UserProfileController::class . '@edit')->name('user.edit');
-    Route::post('dashboard/userprofile/{post}', UserProfileController::class . '@update')->name('user.update');
-    Route::delete('dashboard/userprofile/{post}', UserProfileController::class . '@destroy')->name('user.destroy');
+    Route::get('/', [UserProfileController::class, 'index'])->name('dashboard.userprofile.index');
+    Route::get('/', [UserProfileController::class, 'mikrotik']);
 });
-Route::prefix('dashboard/report')->group(function () {
-    Route::get('/', [ReportController::class, 'index'])->name('report.index');
-    Route::get('dashboard/report/data', [ReportController::class, 'getData'])->name('report.data');
+
+Route::prefix('dashboard/pengaturan')->group(function () {
+    Route::get('/', [PengaturanController::class, 'index'])->name('dashboard.pengaturan.index');
+    // Route::get('/', [PengaturanController::class, 'mikrotik']);
+});
+
+Route::prefix('dashboard/omset')->group(function () {
+    Route::get('/', [OmsetController::class, 'index'])->name('report.index');
+    Route::get('dashboard/omset/data', [OmsetController::class, 'getData'])->name('omset.data');
 });
 Route::prefix('dashboard/active')->group(function () {
     Route::get('/', [ActiveController::class, 'index'])->name('dashboard.active.index');

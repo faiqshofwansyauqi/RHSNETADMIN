@@ -19,7 +19,7 @@
 
                 <div class="card">
                     <div class="card-body">
-                        <h5 class="card-title">Hotspot Active {{ $active_user }} Items</h5>
+                        <h5 class="card-title">Hotspot Active {{ $activeuser_count }} Items</h5>
                         <div class="table-responsive">
                             <table class="table small" id="active-table">
                                 <thead>
@@ -37,7 +37,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($hotspotActiveData as $item)
+                                    @foreach ($hotspotactive_data as $item)
                                         <tr>
                                             <td>{{ $item['server'] }}</td>
                                             <td>{{ $item['user'] }}</td>

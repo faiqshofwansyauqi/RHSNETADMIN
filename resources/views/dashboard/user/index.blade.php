@@ -35,8 +35,8 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($usersdata as $item)
-                                        <tr>
+                                    @foreach ($users_data as $item)
+                                        <tr>    
                                             {{-- <td style="visibility: hidden;">{{ $item['.id'] }}</td> --}}
                                             <td>{{ $item['server'] ?? 'N/A' }}</td>
                                             <td>{{ $item['name'] ?? 'N/A' }}</td>

@@ -32,15 +32,15 @@ class UserController extends Controller
         $users_count = count($response);
 
         $query = new Query('/ip/hotspot/user/print');
-        $usersdata = $client->query($query)->read();
+        $users_data = $client->query($query)->read();
 
-        return view('dashboard.user.index', compact('usersdata', 'users_count'));
+        return view('dashboard.user.index', compact('users_data', 'users_count'));
     }
-    public function delete($id)
-    {
-        // Lakukan proses penghapusan data berdasarkan $id
+    // public function delete($id)
+    // {
+    //     // Lakukan proses penghapusan data berdasarkan $id
 
-        // Redirect kembali ke halaman sebelumnya atau ke halaman lain
-        return redirect()->back()->with('success', 'Data pengguna berhasil dihapus.');
-    }
+    //     // Redirect kembali ke halaman sebelumnya atau ke halaman lain
+    //     return redirect()->back()->with('success', 'Data pengguna berhasil dihapus.');
+    // }
 }
