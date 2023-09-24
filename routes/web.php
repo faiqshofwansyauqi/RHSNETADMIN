@@ -30,6 +30,7 @@ Auth::routes();
 
 Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 Route::get('/dashboard', [DashboardController::class, 'mikrotik']);
+Route::get('/dashboard/filter', [DashboardController::class, 'filterData'])->name('dashboard.filter');
 
 Route::prefix('dashboard/userprofile')->group(function () {
     Route::get('/', [UserProfileController::class, 'index'])->name('dashboard.userprofile.index');

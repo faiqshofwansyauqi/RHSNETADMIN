@@ -20,8 +20,8 @@
                     <div class="card-body">
                         <h5 class="card-title"></h5>
                         <div class="form-inline mb-3">
-                            <label for="filter-date">Filter Tanggal:</label>
-                            <input type="date" class="form-control ml-2" id="filter-date">
+                                <label for="filter-date">Filter Tanggal:</label>
+                                <input type="date" class="form-control ml-2" id="filter-date">
                             <label for="filter-month" class="ml-3">Filter Bulan:</label>
                             <input type="month" class="form-control ml-2" id="filter-month">
                             <label for="total-price">Total Price:</label>
